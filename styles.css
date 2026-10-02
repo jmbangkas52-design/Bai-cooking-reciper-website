@@ -1,0 +1,766 @@
+/* ==========================================================================
+   FreshBites Recipe Login - Fresh Green Theme
+   ========================================================================== */
+
+:root {
+  /* Green Theme Colors */
+  --primary: #16a34a;          /* Main Green */
+  --primary-hover: #15803d;    /* Darker Green on Hover */
+  --primary-light: #dcfce7;    /* Light Green Focus Tint */
+  --primary-dark: #11281c;     /* Dark Forest Accent */
+
+  --accent: #a3e635;           /* Bright Lime Highlight */
+
+  --neutral-900: #0f172a;      /* Dark Text */
+  --neutral-700: #334155;      /* Subheading Text */
+  --neutral-500: #64748b;      /* Muted Label Text */
+  --neutral-300: #cbd5e1;      /* Border Color */
+  --neutral-200: #e2e8f0;      /* Light Border */
+  --neutral-100: #f8fafc;      /* Input Field BG */
+  --neutral-50: #f4fbf7;       /* Minty Soft Background */
+
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(17, 40, 28, 0.12), 0 10px 10px -5px rgba(17, 40, 28, 0.06);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles & Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--neutral-50);
+  color: var(--neutral-900);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(22, 163, 74, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 40%);
+}
+
+/* Page Layout Container */
+.page-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.login-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(22, 163, 74, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 620px;
+}
+
+/* Responsive Split Screen Layout for Desktop */
+@media (min-width: 850px) {
+  .login-card {
+    flex-direction: row;
+  }
+
+  .hero-banner {
+    width: 48%;
+    display: flex !important;
+  }
+
+  .form-section {
+    width: 52%;
+  }
+}
+
+/* Left Hero Banner (Showcase Side) */
+.hero-banner {
+  display: none; /* Hidden on Mobile Screens */
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 2.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 40, 28, 0.92) 0%,
+    rgba(22, 163, 74, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+  color: var(--accent);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.hero-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.featured-recipe-badge {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.badge-img {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.badge-title {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.badge-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Form Container Section */
+.form-section {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 850px) {
+  .form-section {
+    padding: 3rem 3.5rem;
+  }
+}
+
+.mobile-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 850px) {
+  .mobile-brand {
+    display: none;
+  }
+}
+
+.mobile-brand .logo-icon {
+  color: var(--primary);
+}
+
+.mobile-brand .brand-name {
+  color: var(--primary-dark);
+}
+
+/* Tab Switcher */
+.tab-switcher {
+  display: flex;
+  background-color: var(--neutral-100);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  border: 1px solid var(--neutral-200);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--neutral-500);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tab-btn.active {
+  background-color: var(--white);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Forms Toggle & Animation */
+.auth-form {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.auth-form.active-form {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-header {
+  margin-bottom: 1.75rem;
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.4rem;
+}
+
+.form-header p {
+  color: var(--neutral-500);
+  font-size: 0.9rem;
+}
+
+/* Form Input Controls */
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+  margin-bottom: 0.4rem;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgot-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--neutral-500);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--neutral-900);
+  background-color: var(--neutral-100);
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition);
+}
+
+.input-wrapper input:focus {
+  background-color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.input-wrapper input:focus + .input-icon,
+.input-wrapper input:focus ~ .input-icon {
+  color: var(--primary);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0.85rem;
+  background: none;
+  border: none;
+  color: var(--neutral-500);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  transition: var(--transition);
+}
+
+.toggle-password:hover {
+  color: var(--primary-dark);
+}
+
+/* Custom Checkbox */
+.form-options {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.8rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+  user-select: none;
+}
+
+.checkbox-container a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: var(--neutral-100);
+  border: 1.5px solid var(--neutral-300);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  border-color: var(--primary);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Primary Button */
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Divider Element */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--neutral-500);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.divider span {
+  padding: 0 0.75rem;
+}
+
+/* Social Login Grid */
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  background-color: var(--white);
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-300);
+  transform: translateY(-1px);
+}
+
+.social-btn i {
+  font-size: 1.1rem;
+}
+
+/* Styling for the interactive links in the form */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #16a34a; /* Green color from image */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Modal Overlay (hidden by default) */
+.modal-overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Modal Box */
+.modal-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #111827;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.modal-footer {
+  padding: 12px 20px;
+  border-top: 1px solid #e5e7eb;
+  text-align: right;
+}
+
+.btn-primary {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #15803d;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container for the sign-up form */
+.form-section {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #1a202c;
+}
+
+/* Base style for all form input labels */
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #4a5568;
+}
+
+/* Standard styling for text and password input fields */
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+/* Subtle border color change on input focus */
+.input-wrapper input:focus {
+    border-color: #a0aec0;
+    outline: none;
+}
+
+/* Styling for the Terms & Privacy text */
+.btn-link {
+    background: none;
+    border: none;
+    color: #3182ce;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-right: 5px;
+}
+
+/* Styling for the main action button */
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(to bottom, #48bb78, #38a169);
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* Hover and active states for the primary button */
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #38a169, #2f855a);
+}
+
+.btn-primary:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container wrapper position */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Position the icons inside the input fields */
+.input-wrapper .input-icon {
+    position: absolute;
+    left: 14px;
+    color: #a0aec0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Add extra left padding (42px) so text doesn't overlap the icon */
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 16px 12px 42px; /* 42px left padding reserves space for icon */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    font-size: 0.95rem;
+    color: #2d3748;
+    box-sizing: border-box;
+}
+
+/* Style the Terms & Privacy button cleanly */
+.btn-link {
+    background: none;
+    border: none;
+    color: #38a169;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.btn-link:hover {
+    color: #2f855a;
+}
