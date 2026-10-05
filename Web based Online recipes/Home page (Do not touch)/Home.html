@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bai Cooking | Authentic Filipino Recipes Made Simple</title>
+  <link rel="stylesheet" href="home.css" />
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">Bai <strong>Cooking</strong></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="#about">About Bai</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="btn btn-primary" onclick="scrollToRecipes()">Explore Ulam</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="badge">Lutong Bahay • Bisaya Warmth</span>
+      <h1>Lami-an nga Lutong Pinoy, Made Simple for Every Home</h1>
+      <p>Discover easy, authentic, and delicious Filipino recipes handed down through generations. Cook like a true <em>Bai</em> today!</p>
+      
+      <!-- Search Bar -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search Adobo, Sinigang, Halo-Halo..." />
+        <button id="searchBtn" class="btn btn-search">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipe Explorer Section -->
+  <section class="recipes-section" id="recipes">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Filipino Recipes</h2>
+        <p>Select a category or browse through our handpicked favorites.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-category="all">All Dishes</button>
+        <button class="filter-btn" data-category="main">Main Dishes (Ulam)</button>
+        <button class="filter-btn" data-category="soup">Sabaw (Soups)</button>
+        <button class="filter-btn" data-category="merienda">Merienda</button>
+        <button class="filter-btn" data-category="dessert">Panghimagas</button>
+      </div>
+
+      <!-- Recipe Grid -->
+      <div class="recipe-grid" id="recipeGrid">
+        <!-- Recipe cards rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container about-container">
+      <div class="about-text">
+        <span class="badge">About Bai Cooking</span>
+        <h2>Bringing Filipino Hospitality to Your Kitchen</h2>
+        <p>In Visayan and Mindanao dialects, <strong>"Bai"</strong> is a friendly word for pal, friend, or companion. At <em>Bai Cooking</em>, we welcome you like family into our kitchen with easy-to-follow steps and accessible ingredients.</p>
+        <ul class="about-list">
+          <li>✓ Beginner-friendly step-by-step guides</li>
+          <li>✓ Traditional flavor tips and modern twists</li>
+          <li>✓ Tested with standard kitchen equipment</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <div class="about-card-inner">
+          <span class="icon">🍲</span>
+          <h3>100+ Home Cooked Recipes</h3>
+          <p>From everyday family meals to festive fiesta banquets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipe Modal Popup -->
+  <div class="modal" id="recipeModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <div id="modalBody">
+        <!-- Content dynamic via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">🌿</span>
+          <span class="logo-text">Bai <strong>Cooking</strong></span>
+        </a>
+        <p>Your friendly guide to cooking authentic Filipino dishes at home.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#recipes">All Recipes</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Get Weekly Recipes</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" />
+          <button class="btn btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bai Cooking. Crafted with ❤️ for Pinoy food lovers everywhere.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

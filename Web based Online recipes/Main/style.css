@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #fff8e7;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #053320;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+.navlinks a{
+    color: #a0a0b0;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+.navlinks a:hover{
+    color: #ffffff;
+}
+.auth-buttons .btn-signup{
+    background: rgb(0, 156, 0);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+.auth-buttons .signup.html{
+    background: rgba(0, 156, 0, 0.8);
+}
+.auth-buttons .btn-login{
+    color:#ffffff;
+    text-decoration: none;
+    margin-right:25px;
+    font-size: 0.9rem;
+}
